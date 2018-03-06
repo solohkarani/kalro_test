@@ -1,0 +1,69 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [35.932571801291225, -0.3719369852892727]
+            },
+            "properties": {
+                "NAME": "Alexander Hamilton U.S. Custom House",
+                "TEL": "(212) 514-3700",
+                "URL": "http:\/\/www.oldnycustomhouse.gov\/",
+                "ADRESS1": "1 Bowling Grn",
+                "ADDRESS2": null,
+                "CITY": "New York",
+                "ZIP": 10004.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [35.933044753235954, -0.3720040787880295]
+            },
+            "properties": {
+                "NAME": "Alice Austen House Museum",
+                "TEL": "(718) 816-4506",
+                "URL": "http:\/\/www.aliceausten.org\/",
+                "ADRESS1": "2 Hylan Blvd",
+                "ADDRESS2": null,
+                "CITY": "Staten Island",
+                "ZIP": 10305.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [35.93337110169707, -0.37306740864782634]
+            },
+            "properties": {
+                "NAME": "American Academy of Arts and Letters",
+                "TEL": "(212) 368-5900",
+                "URL": "http:\/\/www.artsandletters.org\/",
+                "ADRESS1": "633 W. 155th St.",
+                "ADDRESS2": null,
+                "CITY": "New York",
+                "ZIP": 10032.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [35.93282223152231, -0.3728205358841573]
+            },
+            "properties": {
+                "NAME": "American Folk Art Museum",
+                "TEL": "(212) 265-1040",
+                "URL": "http:\/\/www.folkartmuseum.org\/",
+                "ADRESS1": "45 West 53rd Street",
+                "ADDRESS2": null,
+                "CITY": "New York",
+                "ZIP": 10019.0
+            }
+        }
+    ]
+}

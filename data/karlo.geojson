@@ -1,0 +1,20 @@
+{"type":"FeatureCollection", "features": [
+                {"type":"Feature","geometry":{"type":"Point","coordinates":[35.932571801291225,-0.3719369852892727]},"properties":{"Id":0,"Name":"Education Complex","Use":"Lecture Hall"}},
+                {"type":"Feature","geometry":{"type":"Point","coordinates":[35.933044753235954,-0.3720040787880295]},"properties":{"Id":0,"Name":"Kilimo Hall","Use":"Entertainment"}},
+                {"type":"Feature","geometry":{"type":"Point","coordinates":[35.93337110169707,-0.37306740864782634]},"properties":{"Id":0,"Name":"Adminstration Block","Use":"Adminstration"}},
+                {"type":"Feature","geometry":{"type":"Point","coordinates":[35.93282223152231,-0.3728205358841573]},"properties":{"Id":0,"Name":"Main Library","Use":"Academics"}},
+                {"type":"Feature","geometry":{"type":"Point","coordinates":[35.93326110236478,-0.37256827056418945]},"properties":{"Id":0,"Name":"Graduation Square","Use":"Formal Fuctions"}},
+                {"type":"Feature","geometry":{"type":"Point","coordinates":[35.933831513790516,-0.3709296618917238]},"properties":{"Id":0,"Name":"Student Welfare","Use":"Welfare"}},
+                {"type":"Feature","geometry":{"type":"Point","coordinates":[35.93296770950417,-0.3695601850196708]},"properties":{"Id":0,"Name":"Egerton Gift Shop","Use":"Commercial"}},
+                {"type":"Feature","geometry":{"type":"Point","coordinates":[35.9332623705738,-0.368858487549979]},"properties":{"Id":0,"Name":"Utafiti","Use":"R&D"}},
+                {"type":"Feature","geometry":{"type":"Point","coordinates":[35.93252173053939,-0.3683763431441387]},"properties":{"Id":0,"Name":"Egerton Swimming Pool","Use":"Recreation"}},
+                {"type":"Feature","geometry":{"type":"Point","coordinates":[35.934105973997355,-0.36819331147193135]},"properties":{"Id":0,"Name":"Egerton Sports Pavilion","Use":"Recreation"}},
+                {"type":"Feature","geometry":{"type":"Point","coordinates":[35.93326465322836,-0.367730255214935]},"properties":{"Id":0,"Name":"Egerton Tennis Courts","Use":"Recreation"}},
+                {"type":"Feature","geometry":{"type":"Point","coordinates":[35.932192894644714,-0.3690321342603815]},"properties":{"Id":0,"Name":"ARC Hotel","Use":"Commercial"}},
+                {"type":"Feature","geometry":{"type":"Point","coordinates":[35.931771876708765,-0.3670585399379875]},"properties":{"Id":0,"Name":"Mechanical Eng","Use":"Offices"}},
+                {"type":"Feature","geometry":{"type":"Point","coordinates":[35.9307503073712,-0.3659988000128643]},"properties":{"Id":0,"Name":"FASS Block A","Use":"Office/ Lecture Hall"}},
+                {"type":"Feature","geometry":{"type":"Point","coordinates":[35.931124644325614,-0.36559352993720656]},"properties":{"Id":0,"Name":"FASS Block B","Use":"Office/ Lecture Hall"}},
+                {"type":"Feature","geometry":{"type":"Point","coordinates":[35.93125173997191,-0.36609840894962303]},"properties":{"Id":0,"Name":"FASS Libary","Use":"Academics"}},
+                {"type":"Feature","geometry":{"type":"Point","coordinates":[35.93061751200047,-0.3654977438047734]},"properties":{"Id":0,"Name":"FT","Use":"Theatre"}},
+                {"type":"Feature","geometry":{"type":"Point","coordinates":[35.93039298493197,-0.3666431074134925]},"properties":{"Id":0,"Name":"Egerton Dairy","Use":"Industrial"}}
+            ]}

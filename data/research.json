@@ -1,0 +1,69 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [35.93296770950417,-0.3695601850196708]
+            },
+            "properties": {
+                "NAME": "KALRO 3",
+                "TEL": "(212) 514-3700",
+                "URL": "http:\/\/www.oldnycustomhouse.gov\/",
+                "ADRESS1": "1 Bowling Grn",
+                "ADDRESS2": null,
+                "CITY": "New York",
+                "ZIP": 10004.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [35.931124644325614,-0.36559352993720656]
+            },
+            "properties": {
+                "NAME": "KARLO 4",
+                "TEL": "(718) 816-4506",
+                "URL": "http:\/\/www.aliceausten.org\/",
+                "ADRESS1": "2 Hylan Blvd",
+                "ADDRESS2": null,
+                "CITY": "Staten Island",
+                "ZIP": 10305.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [35.93125173997191,-0.36609840894962303]
+            },
+            "properties": {
+                "NAME": "KALRO 1",
+                "TEL": "(212) 368-5900",
+                "URL": "http:\/\/www.artsandletters.org\/",
+                "ADRESS1": "633 W. 155th St.",
+                "ADDRESS2": null,
+                "CITY": "New York",
+                "ZIP": 10032.0
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [35.934105973997355,-0.36819331147193135]
+            },
+            "properties": {
+                "NAME": "KARLO 2",
+                "TEL": "(212) 265-1040",
+                "URL": "http:\/\/www.folkartmuseum.org\/",
+                "ADRESS1": "45 West 53rd Street",
+                "ADDRESS2": null,
+                "CITY": "New York",
+                "ZIP": 10019.0
+            }
+        }
+    ]
+}
