@@ -1,4 +1,4 @@
-var map, featureList, marketSearch = [], townSearch = [], attribution;
+var map, featureList, kalroCenterSearch = [], attribution;
 $(window).resize(function() {
     sizeLayerControl();
 });
@@ -18,7 +18,7 @@ $("#about-btn").click(function() {
     return false;
 });
 $("#full-extent-btn").click(function() {
-    map.fitBounds(markets.getBounds());
+    map.fitBounds(kalroCenters.getBounds());
     $(".navbar-collapse.in").collapse("hide");
     return false;
 });
@@ -74,19 +74,11 @@ function sidebarClick(id) {
 function syncSidebar() {
     /* Empty sidebar features */
     $("#feature-list tbody").empty();
-    /* Loop through markets layer and add only features which are in the map bounds */
-    markets.eachLayer(function (layer) {
-        if (map.hasLayer(marketLayer)) {
+    /* Loop through kalroCenters layer and add only features which are in the map bounds */
+    kalroCenters.eachLayer(function (layer) {
+        if (map.hasLayer(kalroCenterLayer)) {
             if (map.getBounds().contains(layer.getLatLng())) {
-                $("#feature-list tbody").append('<tr class="feature-row" id="' + L.stamp(layer) + '" lat="' + layer.getLatLng().lat + '" lng="' + layer.getLatLng().lng + '"><td style="vertical-align: middle;"><img width="20" height="20" src="assets/img/market.png"></td><td class="feature-name">' + layer.feature.properties.NAME + '</td><td style="vertical-align: middle;"><i class="fa fa-chevron-right pull-right"></i></td></tr>');
-            }
-        }
-    });
-    /* Loop through towns layer and add only features which are in the map bounds */
-    towns.eachLayer(function (layer) {
-        if (map.hasLayer(townLayer)) {
-            if (map.getBounds().contains(layer.getLatLng())) {
-                $("#feature-list tbody").append('<tr class="feature-row" id="' + L.stamp(layer) + '" lat="' + layer.getLatLng().lat + '" lng="' + layer.getLatLng().lng + '"><td style="vertical-align: middle;"><img width="20" height="20" src="assets/img/town.png"></td><td class="feature-name">' + layer.feature.properties.NAME + '</td><td style="vertical-align: middle;"><i class="fa fa-chevron-right pull-right"></i></td></tr>');
+                $("#feature-list tbody").append('<tr class="feature-row" id="' + L.stamp(layer) + '" lat="' + layer.getLatLng().lat + '" lng="' + layer.getLatLng().lng + '"><td style="vertical-align: middle;"><img width="20" height="20" src="assets/img/kalroCenter.png"></td><td class="feature-name">' + layer.feature.properties.cname + '</td><td style="vertical-align: middle;"><i class="fa fa-chevron-right pull-right"></i></td></tr>');
             }
         }
     });
@@ -131,37 +123,37 @@ var markerClusters = new L.MarkerClusterGroup({
     zoomToBoundsOnClick: true,
     disableClusteringAtZoom: 16
 });
-/* Empty layer placeholder to add to layer control for listening when to add/remove markets to markerClusters layer */
-var marketLayer = L.geoJson(null);
-var markets = L.geoJson(null, {
+/* Empty layer placeholder to add to layer control for listening when to add/remove kalroCenters to markerClusters layer */
+var kalroCenterLayer = L.geoJson(null);
+var kalroCenters = L.geoJson(null, {
     pointToLayer: function (feature, latlng) {
         return L.marker(latlng, {
             icon: L.icon({
-                iconUrl: "assets/img/market.png",
+                iconUrl: "assets/img/kalroCenter.png",
                 iconSize: [32, 32],
                 /*iconAnchor: [12, 28],*/
                 popupAnchor: [0, -25]
             }),
-            title: feature.properties.NAME,
+            title: feature.properties.cname,
             riseOnHover: true
         });
     },
     onEachFeature: function (feature, layer) {
         if (feature.properties) {
-            var content = "<table class='table table-striped table-bordered table-condensed'>" + "<tr><th>Name</th><td>" + feature.properties.NAME + "</td></tr>" + "<tr><th>Phone</th><td>" + feature.properties.TEL + "</td></tr>" + "<tr><th>Address</th><td>" + feature.properties.ADDRESS1 + "</td></tr>" + "<tr><th>Website</th><td><a class='url-break' href='" + feature.properties.URL + "' target='_blank'>" + feature.properties.URL + "</a></td></tr>" + "<table>";
+            var content = "<table class='table table-striped table-bordered table-condensed'>" + "<tr><th>Name</th><td>" + feature.properties.cname + "</td></tr>" + "<tr><th>County</th><td>" + feature.properties.county + "</td></tr>" + "<tr><th>Category</th><td>" + feature.properties.category + "</td></tr>" +"<tr><th>Services</th><td>" + feature.properties.services + "</td></tr>" + "<tr><th>Products</th><td>" + feature.properties.products.name + "</td></tr>" + "<tr><th>Website</th><td><a class='url-break' href='" + "http://www.kalro.org" + "' target='_blank'>" + "http://www.kalro.org" + "</a></td></tr>" + "<table>";
             layer.on({
                 click: function (e) {
-                    $("#feature-title").html(feature.properties.NAME);
+                    $("#feature-title").html(feature.properties.cname);
                     $("#feature-info").html(content);
                     $("#featureModal").modal("show");
                     highlight.clearLayers().addLayer(L.circleMarker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], highlightStyle));
                 }
             });
-            $("#feature-list tbody").append('<tr class="feature-row" id="' + L.stamp(layer) + '" lat="' + layer.getLatLng().lat + '" lng="' + layer.getLatLng().lng + '"><td style="vertical-align: middle;"><img width="20" height="20" src="assets/img/market.png"></td><td class="feature-name">' + layer.feature.properties.NAME + '</td><td style="vertical-align: middle;"><i class="fa fa-chevron-right pull-right"></i></td></tr>');
-            marketSearch.push({
-                name: layer.feature.properties.NAME,
-                address: layer.feature.properties.ADDRESS1,
-                source: "markets",
+            $("#feature-list tbody").append('<tr class="feature-row" id="' + L.stamp(layer) + '" lat="' + layer.getLatLng().lat + '" lng="' + layer.getLatLng().lng + '"><td style="vertical-align: middle;"><img width="20" height="20" src="assets/img/kalroCenter.png"></td><td class="feature-name">' + layer.feature.properties.cname + '</td><td style="vertical-align: middle;"><i class="fa fa-chevron-right pull-right"></i></td></tr>');
+            kalroCenterSearch.push({
+                name: layer.feature.properties.cname,
+                address: layer.feature.properties.category,
+                source: "kalroCenters",
                 id: L.stamp(layer),
                 lat: layer.feature.geometry.coordinates[1],
                 lng: layer.feature.geometry.coordinates[0]
@@ -169,76 +161,28 @@ var markets = L.geoJson(null, {
         }
     }
 });
-$.getJSON("data/research.json", function (data) {
-    markets.addData(data);
-    map.addLayer(marketLayer);
+$.getJSON("data/centers.json", function (data) {
+    kalroCenters.addData(data);
+    map.addLayer(kalroCenterLayer);
 });
-/* Empty layer placeholder to add to layer control for listening when to add/remove towns to markerClusters layer */
-var townLayer = L.geoJson(null);
-var towns = L.geoJson(null, {
-    pointToLayer: function (feature, latlng) {
-        return L.marker(latlng, {
-            icon: L.icon({
-                iconUrl: "assets/img/town.png",
-                iconSize: [32, 32],
-                /*iconAnchor: [12, 28],*/
-                popupAnchor: [0, -25]
-            }),
-            title: feature.properties.NAME,
-            riseOnHover: true
-        });
-    },
-    onEachFeature: function (feature, layer) {
-        if (feature.properties) {
-            var content = "<table class='table table-striped table-bordered table-condensed'>" + "<tr><th>Name</th><td>" + feature.properties.NAME + "</td></tr>" + "<tr><th>Phone</th><td>" + feature.properties.TEL + "</td></tr>" + "<tr><th>Address</th><td>" + feature.properties.ADRESS1 + "</td></tr>" + "<tr><th>Website</th><td><a class='url-break' href='" + feature.properties.URL + "' target='_blank'>" + feature.properties.URL + "</a></td></tr>" + "<table>";
-            layer.on({
-                click: function (e) {
-                    $("#feature-title").html(feature.properties.NAME);
-                    $("#feature-info").html(content);
-                    $("#featureModal").modal("show");
-                    highlight.clearLayers().addLayer(L.circleMarker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], highlightStyle));
-                }
-            });
-            $("#feature-list tbody").append('<tr class="feature-row" id="' + L.stamp(layer) + '" lat="' + layer.getLatLng().lat + '" lng="' + layer.getLatLng().lng + '"><td style="vertical-align: middle;"><img width="20" height="20" src="assets/img/town.png"></td><td class="feature-name">' + layer.feature.properties.NAME + '</td><td style="vertical-align: middle;"><i class="fa fa-chevron-right pull-right"></i></td></tr>');
-            townSearch.push({
-                name: layer.feature.properties.NAME,
-                address: layer.feature.properties.ADRESS1,
-                source: "towns",
-                id: L.stamp(layer),
-                lat: layer.feature.geometry.coordinates[1],
-                lng: layer.feature.geometry.coordinates[0]
-            });
-        }
-    }
-});
-$.getJSON("data/kalro.json", function (data) {
-    towns.addData(data);
-});
+
 map = L.map("map", {
     zoom: 10,
-    center: [40.702222, -73.979378],
-    layers: [cartoLight, markets, markerClusters, highlight],
+    /*center: [40.702222, -73.979378],*/
+    layers: [cartoLight, markerClusters, highlight],
     zoomControl: false,
     attributionControl: false
 });
 /* Layer control listeners that allow for a single markerClusters layer */
 map.on("overlayadd", function(e) {
-    if (e.layer === marketLayer) {
-        markerClusters.addLayer(markets);
-        syncSidebar();
-    }
-    if (e.layer === townLayer) {
-        markerClusters.addLayer(towns);
+    if (e.layer === kalroCenterLayer) {
+        markerClusters.addLayer(kalroCenters);
         syncSidebar();
     }
 });
 map.on("overlayremove", function(e) {
-    if (e.layer === marketLayer) {
-        markerClusters.removeLayer(markets);
-        syncSidebar();
-    }
-    if (e.layer === townLayer) {
-        markerClusters.removeLayer(towns);
+    if (e.layer === kalroCenterLayer) {
+        markerClusters.removeLayer(kalroCenters);
         syncSidebar();
     }
 });
@@ -304,7 +248,7 @@ var locateControl = L.control.locate({
     }
 }).addTo(map);
 /* Larger screens get expanded layer control and visible sidebar */
-if (document.body.clientWidth <= 767) {
+if (document.body.clientWidth <= 800) {
     var isCollapsed = true;
 } else {
     var isCollapsed = false;
@@ -315,8 +259,7 @@ var baseLayers = {
 };
 var groupedOverlays = {
     "Points of Interest": {
-        "<img src='assets/img/market.png' width='24' height='24'>&nbsp;Research Center": marketLayer,
-        "<img src='assets/img/town.png' width='24' height='24'>&nbsp;Research Institute": townLayer
+        "<img src='assets/img/kalroCenter.png' width='24' height='24'>&nbsp;KALRO Center": kalroCenterLayer,
     }
 };
 var layerControl = L.control.groupedLayers(baseLayers, groupedOverlays, {
@@ -339,26 +282,17 @@ $("#featureModal").on("hidden.bs.modal", function (e) {
 $(document).one("ajaxStop", function () {
     $("#loading").hide();
     sizeLayerControl();
-    /* Fit map to market bounds */
-    map.fitBounds(markets.getBounds());
+    /* Fit map to kalroCenter bounds */
+    map.fitBounds(kalroCenters.getBounds());
     featureList = new List("features", {valueNames: ["feature-name"]});
     featureList.sort("feature-name", {order:"asc"});
-    var marketsBH = new Bloodhound({
-        name: "markets",
+    var kalroCentersBH = new Bloodhound({
+        name: "kalroCenters",
         datumTokenizer: function (d) {
             return Bloodhound.tokenizers.whitespace(d.name);
         },
         queryTokenizer: Bloodhound.tokenizers.whitespace,
-        local: marketSearch,
-        limit: 10
-    });
-    var townsBH = new Bloodhound({
-        name: "towns",
-        datumTokenizer: function (d) {
-            return Bloodhound.tokenizers.whitespace(d.name);
-        },
-        queryTokenizer: Bloodhound.tokenizers.whitespace,
-        local: townSearch,
+        local: kalroCenterSearch,
         limit: 10
     });
     var geonamesBH = new Bloodhound({
@@ -392,8 +326,7 @@ $(document).one("ajaxStop", function () {
         limit: 10
     });
 
-    marketsBH.initialize();
-    townsBH.initialize();
+    kalroCentersBH.initialize();
     geonamesBH.initialize();
     /* instantiate the typeahead UI */
     $("#searchbox").typeahead({
@@ -401,22 +334,14 @@ $(document).one("ajaxStop", function () {
         highlight: true,
         hint: false
     },{
-        name: "markets",
+        name: "kalroCenters",
         displayKey: "name",
-        source: marketsBH.ttAdapter(),
+        source: kalroCentersBH.ttAdapter(),
         templates: {
-            header: "<h4 class='typeahead-header'><img src='assets/img/market.png' width='24' height='24'>&nbsp;Centers</h4>",
+            header: "<h4 class='typeahead-header'><img src='assets/img/kalroCenter.png' width='24' height='24'>&nbsp;Centers</h4>",
             suggestion: Handlebars.compile(["{{name}}<br>&nbsp;<small>{{address}}</small>"].join(""))
         }
-    }, {
-        name: "towns",
-        displayKey: "name",
-        source: townsBH.ttAdapter(),
-        templates: {
-            header: "<h4 class='typeahead-header'><img src='assets/img/town.png' width='24' height='24'>&nbsp;Institutes</h4>",
-            suggestion: Handlebars.compile(["{{name}}<br>&nbsp;<small>{{address}}</small>"].join(""))
-        }
-    }, {
+    },{
         name: "GeoNames",
         displayKey: "name",
         source: geonamesBH.ttAdapter(),
@@ -424,18 +349,9 @@ $(document).one("ajaxStop", function () {
             header: "<h4 class='typeahead-header'><img src='assets/img/globe.png' width='25' height='25'>&nbsp;GeoNames</h4>"
         }
     }).on("typeahead:selected", function (obj, datum) {
-        if (datum.source === "markets") {
-            if (!map.hasLayer(marketLayer)) {
-                map.addLayer(marketLayer);
-            }
-            map.setView([datum.lat, datum.lng], 17);
-            if (map._layers[datum.id]) {
-                map._layers[datum.id].fire("click");
-            }
-        }
-        if (datum.source === "towns") {
-            if (!map.hasLayer(townLayer)) {
-                map.addLayer(townLayer);
+        if (datum.source === "kalroCenters") {
+            if (!map.hasLayer(kalroCenterLayer)) {
+                map.addLayer(kalroCenterLayer);
             }
             map.setView([datum.lat, datum.lng], 17);
             if (map._layers[datum.id]) {

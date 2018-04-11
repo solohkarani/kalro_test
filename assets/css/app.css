@@ -20,8 +20,8 @@ input[type="radio"], input[type="checkbox"] {
 }
 /*navbar begin*/
 .navbar-default {
-  background-image: -webkit-linear-gradient(top, #27ae60 0%, #a9dfbf 100%);
-  background-image: linear-gradient(to right, #27ae60 0%, #a9dfbf 15%);
+  background-image: -webkit-linear-gradient(top, #00e600 0%, #d9ffb3 100%);
+  background-image: linear-gradient(to right, #00e600 0%, #d9ffb3 25%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffdfdfdf', GradientType=0);
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.6)
@@ -33,6 +33,7 @@ input[type="radio"], input[type="checkbox"] {
   max-width: 100%;
   float: left;
   font-size: 13px;
+  background-image: linear-gradient(to right, #00e600 0%, #d9ffb3 15%);
 }
 #map {
   width: auto;
@@ -54,6 +55,7 @@ input[type="radio"], input[type="checkbox"] {
   border-radius: 0px;
   -webkit-box-shadow: none;
   box-shadow: none;
+  background-image: linear-gradient(to right, #00e600 0%, #d9ffb3 15%);
 }
 #sidebar-hide-btn {
   margin-top: -2px;
@@ -69,9 +71,11 @@ input[type="radio"], input[type="checkbox"] {
 }
 .panel-heading{
   width: 250px;
+  background-image: linear-gradient(to right, #00e600 0%, #00e600 0%);
 }
 .panel-body{
   width: 250px;
+  background-image: -webkit-linear-gradient(top, #00e600 0%, #d9ffb3 50%);
 }
 .feature-row {
   cursor: pointer;
@@ -88,6 +92,9 @@ input[type="radio"], input[type="checkbox"] {
   top: 103px;
   bottom: 0px;
   overflow: auto;
+}
+.feature-row:hover{
+  color: red;
 }
 .leaflet-control-layers {
   overflow: auto;
@@ -165,6 +172,21 @@ input[type="radio"], input[type="checkbox"] {
   line-height: 34px;
   text-align: center;
 }
+.modal-content {
+    background-color: #d9ffb3;
+}       
+.modal-header {
+    background-color: #00e600;
+    padding:16px 16px;
+    color:#FFF;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+ }
+.modal-footer {
+    background-color: #66ff66;
+    padding:16px 16px;
+    color:#FFF;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+ }
 @media (max-width: 992px) {
   .navbar .navbar-brand {
     font-size: 18px;
