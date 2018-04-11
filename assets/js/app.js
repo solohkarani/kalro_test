@@ -140,7 +140,7 @@ var kalroCenters = L.geoJson(null, {
     },
     onEachFeature: function (feature, layer) {
         if (feature.properties) {
-            var content = "<table class='table table-striped table-bordered table-condensed'>" + "<tr><th>Name</th><td>" + feature.properties.cname + "</td></tr>" + "<tr><th>County</th><td>" + feature.properties.county + "</td></tr>" + "<tr><th>Category</th><td>" + feature.properties.category + "</td></tr>" +"<tr><th>Services</th><td>" + feature.properties.services + "</td></tr>" + "<tr><th>Products</th><td>" + feature.properties.products.name + "</td></tr>" + "<tr><th>Website</th><td><a class='url-break' href='" + "http://www.kalro.org" + "' target='_blank'>" + "http://www.kalro.org" + "</a></td></tr>" + "<table>";
+            var content = "<table class='table table-striped table-bordered table-condensed'>" + "<tr><th>Name</th><td>" + feature.properties.cname + "</td></tr>" + "<tr><th>County</th><td>" + feature.properties.county + "</td></tr>" + "<tr><th>Category</th><td>" + feature.properties.category + "</td></tr>" +"<tr><th>Services</th><td>" + feature.properties.services + "</td></tr>" + "<tr><th>Products</th><td>" + feature.properties.products + "</td></tr>" + "<tr><th>Website</th><td><a class='url-break' href='" + "http://www.kalro.org" + "' target='_blank'>" + "http://www.kalro.org" + "</a></td></tr>" + "<table>";
             layer.on({
                 click: function (e) {
                     $("#feature-title").html(feature.properties.cname);
